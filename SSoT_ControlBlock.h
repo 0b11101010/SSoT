@@ -28,7 +28,8 @@ typedef enum
 {
     READY = 0,
     RUNNING = 1,
-    WAITING_HARDWARE = 2
+    WAITING_HARDWARE = 2,
+    KILLED = 3
 }SSoT_StateType;
 
 typedef struct 

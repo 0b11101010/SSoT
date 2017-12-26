@@ -6,37 +6,21 @@
 void* thread_A(void* arg)
 {
     SSoT_ControlBlockType* pThreadControlBlock = (SSoT_ControlBlockType*)arg;
-    sem_t* pSynchObject = &pThreadControlBlock->synchObject;
-    while (1U == 1U)
-    {
-        sem_wait(pSynchObject);
-        printf("%s\n",pThreadControlBlock->name);
-    }
-
+    printf("%s\n",pThreadControlBlock->name);
     return NULL;
 }
 
 void* thread_B(void* arg)
 {
-    sem_t* pSynchObject = &(((SSoT_ControlBlockType*)arg)->synchObject);
-    while (1U == 1U)
-    {
-        sem_wait(pSynchObject);
-        printf("thread_B called!\n");
-    }
-
+    SSoT_ControlBlockType* pThreadControlBlock = (SSoT_ControlBlockType*)arg;
+    printf("%s\n",pThreadControlBlock->name);
     return NULL;
 }
 
 void* thread_C(void* arg)
 {
-    sem_t* pSynchObject = &(((SSoT_ControlBlockType*)arg)->synchObject);
-    while (1U == 1U)
-    {
-        sem_wait(pSynchObject);
-        printf("thread_C called!\n");
-    }
-
+    SSoT_ControlBlockType* pThreadControlBlock = (SSoT_ControlBlockType*)arg;
+    printf("%s\n",pThreadControlBlock->name);
     return NULL;
 }
 

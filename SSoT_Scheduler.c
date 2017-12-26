@@ -3,6 +3,7 @@
 #include "SSoT_Scheduler.h"
 
 static void* SSoT_Scheduler_Thread(void* arg);
+static void* SSoT_Runner(void* arg);
 
 static SSoT_ControlBlockType s_low_priority_thread_list[MAX_LOW_PRIORITY_THREAD_COUNT] = {0};
 static SSoT_ControlBlockType s_high_priority_thread_list[MAX_HIGH_PRIORITY_THREAD_COUNT] = {0};
@@ -30,7 +31,7 @@ int32_t create_SSoT_thread(
                 pthread_create(
                     &s_low_priority_thread_list[i].posixThreadId,
                     NULL,
-                    s_low_priority_thread_list[i].method,
+                    SSoT_Runner,
                     (void*)&s_low_priority_thread_list[i]
                     );
                 break;
@@ -58,7 +59,7 @@ int32_t create_SSoT_thread(
                 pthread_create(
                     &s_high_priority_thread_list[i].posixThreadId,
                     NULL,
-                    s_high_priority_thread_list[i].method,
+                    SSoT_Runner,
                     (void*)&s_high_priority_thread_list[i]
                     );
 
@@ -74,6 +75,20 @@ int32_t create_SSoT_thread(
     return i;
 }
 
+void* SSoT_Runner(void* arg)
+{
+    void* return_value;
+    SSoT_ControlBlockType* pThreadControlBlock = (SSoT_ControlBlockType*)arg;
+    SSoT_SyncType* pSynchObject = &pThreadControlBlock->synchObject;
+    while (1U == 1U)
+    {
+        sem_wait(pSynchObject);
+        return_value = pThreadControlBlock->method(arg);
+    }
+
+    return return_value;
+}
+
 static void* SSoT_Scheduler_Thread(void* arg)
 {
     while (1U == 1U)
@@ -81,16 +96,22 @@ static void* SSoT_Scheduler_Thread(void* arg)
         for (uint32_t i = 0; i < ((sizeof(s_high_priority_thread_list)) / (sizeof(s_high_priority_thread_list[0]))); ++i) 
         {
             if (REGISTERED == s_high_priority_thread_list[i].registration) {
-                sem_post(&s_high_priority_thread_list[i].synchObject);
-                usleep(1000000U);
+                if (READY == s_high_priority_thread_list[i].state) 
+                {
+                    sem_post(&s_high_priority_thread_list[i].synchObject);
+                    usleep(1000000U);
+                }
             }
         }
 
         for (uint32_t i = 0; i < ((sizeof(s_low_priority_thread_list)) / (sizeof(s_low_priority_thread_list[0]))); ++i) 
         {
             if (REGISTERED == s_low_priority_thread_list[i].registration) {
-                sem_post(&s_low_priority_thread_list[i].synchObject);
-                usleep(1000000U);
+                if (READY == s_low_priority_thread_list[i].state) 
+                {
+                    sem_post(&s_low_priority_thread_list[i].synchObject);
+                    usleep(1000000U);
+                }
             }
         }
     }

@@ -24,6 +24,13 @@ typedef enum
 typedef pthread_t SSoT_PosixThreadId;
 typedef sem_t SSoT_SyncType;
 
+typedef enum
+{
+    READY = 0,
+    RUNNING = 1,
+    WAITING_HARDWARE = 2
+}SSoT_StateType;
+
 typedef struct 
 {
     SSoT_RegistrationType registration;
@@ -31,6 +38,7 @@ typedef struct
     SSoT_PosixThreadId posixThreadId;
     SSoT_PriorityType priority;
     SSoT_SyncType synchObject;
+    SSoT_StateType state;
     SSoT_NameType* name;
     SSoT_ThreadMethodType method;
 }SSoT_ControlBlockType;

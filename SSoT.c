@@ -30,28 +30,28 @@ void* thread_high_priority(void* arg)
 {
     SSoT_ControlBlockType* pThreadControlBlock = (SSoT_ControlBlockType*)arg;
     EXECUTE_SSoT_LINE(
-        printf("%s is WORKING\n",pThreadControlBlock->name)
+        printf("%s is WORKING - 0\n",pThreadControlBlock->name)
     );
     EXECUTE_SSoT_LINE(
-        printf("%s will wait IO\n",pThreadControlBlock->name)
+        printf("%s will wait IO - 1\n",pThreadControlBlock->name)
     );
     WAIT_FOR_IO(35U);
     EXECUTE_SSoT_LINE(
-        printf("%s returned from IO\n",pThreadControlBlock->name)
+        printf("%s returned from IO - 1\n",pThreadControlBlock->name)
     );
     EXECUTE_SSoT_LINE(
-        printf("%s will wait IO\n",pThreadControlBlock->name)
+        printf("%s will wait IO - 2\n",pThreadControlBlock->name)
     );
     WAIT_FOR_IO(25U);
     EXECUTE_SSoT_LINE(
-        printf("%s returned from IO\n",pThreadControlBlock->name)
+        printf("%s returned from IO - 2\n",pThreadControlBlock->name)
     );
         EXECUTE_SSoT_LINE(
-        printf("%s will wait IO\n",pThreadControlBlock->name)
+        printf("%s will wait IO - 3\n",pThreadControlBlock->name)
     );
     WAIT_FOR_IO(15U);
     EXECUTE_SSoT_LINE(
-        printf("%s returned from IO\n",pThreadControlBlock->name)
+        printf("%s returned from IO - 3\n",pThreadControlBlock->name)
     );
     return NULL;
 }

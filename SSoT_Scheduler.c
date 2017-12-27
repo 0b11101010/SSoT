@@ -234,6 +234,7 @@ static void* SSoT_Scheduler_Thread(void* arg)
                         // There is no low priority thread to run
                         // Nothing to do
                         // But run scheduler to catch I/O completion
+                        usleep(1000U);
                         sem_post(&s_scheduler_synch_object);
                     }
                     else

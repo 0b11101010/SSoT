@@ -1,0 +1,442 @@
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+Thread_l1 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l3 is WORKING
+			0,1,2,3,4,
+SCHEDULER : Thread_l3 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+5,6,7,8,9
+Thread_l4 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,
+SCHEDULER : Thread_l5 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+2,3,4,5,6,7,8,9
+Thread_l6 is WORKING
+			0,1,2,
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l6 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+3,4,5,6,7,8,9
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+
+SCHEDULER : Thread_l8 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+Thread_l1 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,
+SCHEDULER : Thread_l2 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+7,8,9
+Thread_l3 is WORKING
+			0,1,2,3,4,5,6,7,
+SCHEDULER : Thread_l3 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l3 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+8,9
+Thread_l4 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l6 is WORKING
+			0,
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+1,2,3,4,5,6,7,8,9
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+Thread_l8 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l1 is WORKING
+
+SCHEDULER : Thread_l1 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l1 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+			0,1,2,3,4,5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l3 is WORKING
+			0,1,2,3,4,5,
+SCHEDULER : Thread_l3 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+6,7,8,9
+Thread_l4 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,
+SCHEDULER : Thread_l5 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+3,4,5,6,7,8,9
+Thread_l6 is WORKING
+			0,1,2,3,
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l6 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+4,5,6,7,8,9
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+Thread_l1 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,
+SCHEDULER : Thread_l2 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+9
+Thread_l3 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+
+SCHEDULER : Thread_l3 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l3 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+Thread_l4 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l6 is WORKING
+			0,1,2,
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+3,4,5,6,7,8,9
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			
+SCHEDULER : Thread_l8 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+0,1,2,3,4,5,6,7,8,9
+Thread_l1 is WORKING
+			0,
+SCHEDULER : Thread_l1 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l1 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+1,2,3,4,5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l3 is WORKING
+			0,1,2,3,4,5,6,7,
+SCHEDULER : Thread_l3 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+8,9
+Thread_l4 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,3,4,
+SCHEDULER : Thread_l5 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+5,6,7,8,9
+Thread_l6 is WORKING
+			0,1,2,3,4,5,
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l6 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+6,7,8,9
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l1 is WORKING
+
+SCHEDULER : Thread_l1 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+			0,1,2,3,4,5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+
+SCHEDULER : Thread_l2 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+Thread_l3 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_H1 returned from IO - 3
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+Thread_l4 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l6 is WORKING
+			0,1,2,3,4,
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+5,6,7,8,9
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			0,1,
+SCHEDULER : Thread_l8 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+2,3,4,5,6,7,8,9
+Thread_l1 is WORKING
+			0,1,2,
+SCHEDULER : Thread_l1 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l1 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+3,4,5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l3 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+
+SCHEDULER : Thread_l3 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+Thread_l4 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,3,4,5,6,
+SCHEDULER : Thread_l5 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+7,8,9
+Thread_l6 is WORKING
+			0,1,2,3,4,5,6,7,
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l6 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+8,9
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l1 is WORKING
+			0,
+SCHEDULER : Thread_l1 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+1,2,3,4,5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+Thread_l3 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l4 is WORKING
+
+SCHEDULER : Thread_l4 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l4 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+			0,1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l6 is WORKING
+			0,1,2,3,4,5,
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+6,7,8,9
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			0,1,2,
+SCHEDULER : Thread_l8 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+3,4,5,6,7,8,9
+Thread_l1 is WORKING
+			0,1,2,3,
+SCHEDULER : Thread_l1 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l1 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+4,5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l3 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+Thread_l4 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,3,4,5,6,7,8,
+SCHEDULER : Thread_l5 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+9
+Thread_l6 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l6 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l1 is WORKING
+			0,1,2,
+SCHEDULER : Thread_l1 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+3,4,5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l3 is WORKING
+			
+SCHEDULER : Thread_l3 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+0,1,2,3,4,5,6,7,8,9
+Thread_l4 is WORKING
+			0,
+SCHEDULER : Thread_l4 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l4 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l6 is WORKING
+			0,1,2,3,4,5,6,7,
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+8,9
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			0,1,2,3,4,
+SCHEDULER : Thread_l8 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+5,6,7,8,9
+Thread_l1 is WORKING
+			0,1,2,3,4,5,
+SCHEDULER : Thread_l1 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l1 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l3 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l4 is WORKING
+
+SCHEDULER : Thread_l4 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+			0,1,2,3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+
+SCHEDULER : Thread_l5 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+Thread_l6 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_H1 returned from IO - 3
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l1 is WORKING
+			0,1,2,3,4,
+SCHEDULER : Thread_l1 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+5,6,7,8,9
+Thread_l2 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l3 is WORKING
+			0,1,
+SCHEDULER : Thread_l3 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+2,3,4,5,6,7,8,9
+Thread_l4 is WORKING
+			0,1,2,
+SCHEDULER : Thread_l4 preempted
+Thread_H1 returned from IO - 3
+
+SCHEDULER : Thread_l4 preempted
+Thread_H1 is WORKING - 0
+Thread_H1 will wait IO - 1
+3,4,5,6,7,8,9
+Thread_l5 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l6 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+
+SCHEDULER : Thread_l6 preempted
+Thread_H1 returned from IO - 1
+Thread_H1 will wait IO - 2
+Thread_l7 is WORKING
+			0,1,2,3,4,5,6,7,8,9
+Thread_l8 is WORKING
+			0,1,2,3,4,5,6,
+SCHEDULER : Thread_l8 preempted
+Thread_H1 returned from IO - 2
+Thread_H1 will wait IO - 3
+7,8,9
+Thread_l1 is WORKING

@@ -1,3 +1,4 @@
+// author : erhan akagunduz
 #include <stdlib.h>
 #include "SSoT_Queue.h"
 

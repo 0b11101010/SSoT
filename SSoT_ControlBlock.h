@@ -1,3 +1,4 @@
+// author : erhan akagunduz
 #ifndef SSOT_CONTROL_BLOCK_H
 #define SSOT_CONTROL_BLOCK_H
 

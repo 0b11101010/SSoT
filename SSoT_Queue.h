@@ -1,3 +1,4 @@
+// author : erhan akagunduz
 #ifndef SSOT_QUEUE_H
 #define SSOT_QUEUE_H
 

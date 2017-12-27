@@ -1,3 +1,4 @@
+//author : erhan akagunduz
 #include <stdint.h>
 #include <stdio.h>
 #include <semaphore.h>

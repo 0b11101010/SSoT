@@ -15,31 +15,32 @@ typedef enum
     HIGH_PRIORITY = 1
 }SSoT_PriorityType;
 
-typedef enum
-{
-    NOT_REGISTERED = 0,
-    REGISTERED = 0xEA
-}SSoT_RegistrationType;
-
 typedef pthread_t SSoT_PosixThreadId;
 typedef sem_t SSoT_SyncType;
 
+typedef uint32_t SSoTWaitingTimeType;
+
 typedef enum
 {
-    READY = 0,
-    RUNNING = 1,
-    WAITING_HARDWARE = 2,
-    KILLED = 3
+    UNINITIALIZED = 0,
+    INITIALIZED,
+    READY_TO_RUN,
+    READY,
+    RUNNING,
+    SYNCH_POINT,
+    WAITING,
+    KILLED
 }SSoT_StateType;
 
 typedef struct 
 {
-    SSoT_RegistrationType registration;
+    SSoT_StateType state;
+    SSoTWaitingTimeType waitingTime;
     SSoT_IdType id;
     SSoT_PosixThreadId posixThreadId;
     SSoT_PriorityType priority;
     SSoT_SyncType synchObject;
-    SSoT_StateType state;
+    SSoT_SyncType* pSchedulerSynchObject;
     SSoT_NameType* name;
     SSoT_ThreadMethodType method;
 }SSoT_ControlBlockType;

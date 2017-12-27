@@ -1,88 +1,73 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <semaphore.h>
+#include <unistd.h>
 #include "SSoT_Scheduler.h"
 #include "SSoT_Queue.h"
 
-void* thread_A(void* arg)
+void* thread_low_priority(void* arg)
 {
     SSoT_ControlBlockType* pThreadControlBlock = (SSoT_ControlBlockType*)arg;
-    printf("%s\n",pThreadControlBlock->name);
+    EXECUTE_SSoT_LINE(printf("%s is WORKING\n",pThreadControlBlock->name));
+    EXECUTE_SSoT_LINE(printf("\t\t\t"));
+    for (uint32_t i = 0; i < 10U; ++i)
+    {
+        if (9 == i)
+        {
+           EXECUTE_SSoT_LINE(printf("%d\n", i)); 
+        }
+        else
+        {
+            EXECUTE_SSoT_LINE(printf("%d,", i));
+        }
+        usleep(100000U);
+    }
     return NULL;
 }
 
-void* thread_B(void* arg)
+void* thread_high_priority(void* arg)
 {
     SSoT_ControlBlockType* pThreadControlBlock = (SSoT_ControlBlockType*)arg;
-    printf("%s\n",pThreadControlBlock->name);
-    return NULL;
-}
-
-void* thread_C(void* arg)
-{
-    SSoT_ControlBlockType* pThreadControlBlock = (SSoT_ControlBlockType*)arg;
-    printf("%s\n",pThreadControlBlock->name);
+    EXECUTE_SSoT_LINE(
+        printf("%s is WORKING\n",pThreadControlBlock->name)
+    );
+    EXECUTE_SSoT_LINE(
+        printf("%s will wait IO\n",pThreadControlBlock->name)
+    );
+    WAIT_FOR_IO(35U);
+    EXECUTE_SSoT_LINE(
+        printf("%s returned from IO\n",pThreadControlBlock->name)
+    );
+    EXECUTE_SSoT_LINE(
+        printf("%s will wait IO\n",pThreadControlBlock->name)
+    );
+    WAIT_FOR_IO(25U);
+    EXECUTE_SSoT_LINE(
+        printf("%s returned from IO\n",pThreadControlBlock->name)
+    );
+        EXECUTE_SSoT_LINE(
+        printf("%s will wait IO\n",pThreadControlBlock->name)
+    );
+    WAIT_FOR_IO(15U);
+    EXECUTE_SSoT_LINE(
+        printf("%s returned from IO\n",pThreadControlBlock->name)
+    );
     return NULL;
 }
 
 int32_t main(int32_t argc, char* argv[])
 {
-    SSoT_QueueType* pSSoT_Queue = create_SSoT_Queue(16U);
-    
-    uint32_t i;
-    SSoT_QueueErrorType error;
-    for (i = 0; i < 16U; i++)
-    {
-        error = enqueue(pSSoT_Queue, (SSoT_IdType)i);
-        if (QUEUE_ERR_OK != error)
-        {
-            printf("Error Occured while enqueue %d\n", i);
-        }
-        else
-        {
-            printf("Enqueued : %d\n", i);
-        }
-    }
+    initialize_SSoT_Scheduler();
 
-    error = enqueue(pSSoT_Queue, (SSoT_IdType)i);
-    if (QUEUE_ERR_OK != error)
-    {
-        printf("Error Occured while enqueue %d\n", i);
-    }
-    else
-    {
-        printf("Enqueued : %d\n", i);
-    }
-
-    SSoT_IdType id = -1;
-    for (i = 0; i < 16U; i++)
-    {
-        id = -1;
-        error = dequeue(pSSoT_Queue, &id);
-        if (QUEUE_ERR_OK != error)
-        {
-            printf("Error Occured while dequeue %d\n", i);
-        }
-        else
-        {
-            printf("Dequeued : %d\n", id);
-        }
-    }
-
-    id = -1;
-    error  = dequeue(pSSoT_Queue, &id);
-    if (QUEUE_ERR_OK != error)
-    {
-        printf("Error Occured while dequeue");
-    }
-    else
-    {
-        printf("Dequeued : %d\n", id);
-    }
-
-    create_SSoT_thread(LOW_PRIORITY, "Thread_A", thread_A);
-    create_SSoT_thread(LOW_PRIORITY, "Thread_B", thread_B);
-    create_SSoT_thread(HIGH_PRIORITY, "Thread_C", thread_C);
+    create_SSoT_thread(LOW_PRIORITY, "Thread_l1", thread_low_priority);
+    create_SSoT_thread(LOW_PRIORITY, "Thread_l2", thread_low_priority);
+    create_SSoT_thread(LOW_PRIORITY, "Thread_l3", thread_low_priority);
+    create_SSoT_thread(LOW_PRIORITY, "Thread_l4", thread_low_priority);
+    create_SSoT_thread(LOW_PRIORITY, "Thread_l5", thread_low_priority);
+    create_SSoT_thread(LOW_PRIORITY, "Thread_l6", thread_low_priority);
+    create_SSoT_thread(LOW_PRIORITY, "Thread_l7", thread_low_priority);
+    create_SSoT_thread(LOW_PRIORITY, "Thread_l8", thread_low_priority);
+    create_SSoT_thread(HIGH_PRIORITY, "Thread_H1", thread_high_priority);
 
     pthread_t scheduler_thread_id = run_SSoT_Scheduler();
 
